@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import NavBar from "./components/navbar";
-import Counters from "./components/counters";
+import NavBar from "./components/navbar";  //todo: Transform this into 2 navigational panes: PC use and Mobile use.
+import Counters from "./components/counters"; //todo: set this aside for later use
+import Banner from "./components/banner/banner"; //todo: bring banner over from MVC4 Project
 
 class App extends Component {
   state = {
@@ -53,19 +54,17 @@ class App extends Component {
     console.log("App - Rendered");
 
     return (
-      <React.Fragment>
+      <><React.Fragment>
         <NavBar
-          totalCounters={this.state.counters.filter((c) => c.value > 0).length}
-        />
+          totalCounters={this.state.counters.filter((c) => c.value > 0).length} />
         <main className="container">
           <Counters
             counters={this.state.counters}
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
-            onDelete={this.handleDelete}
-          />
+            onDelete={this.handleDelete} />
         </main>
-      </React.Fragment>
+      </React.Fragment><Banner /></>
     );
   }
 }
