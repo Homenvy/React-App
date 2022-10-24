@@ -242,7 +242,7 @@ a.categoryButton {
 }
 
 a.navLogo {
-    background-image: url("");
+    /*background-image: url("");*/
     width: 123px;
     height: 50px;
     display: block;
@@ -494,7 +494,7 @@ a.signUp2:hover {
 #body {
     background-color: #efeeef;
     clear: both;
-    background-image: url("");
+    /*background-image: url("");*/
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;

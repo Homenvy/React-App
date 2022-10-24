@@ -6,17 +6,14 @@ class Banner extends Component {
     render() {
         console.log("Banner Rendered");
         const timeOfDay = this.lightOfDay();
-        const lightSource = this.timeOfDay === ("day" || "dusk") ? "sun" : "moon";
+        const lightSource = this.findLightSource(timeOfDay);
         console.log(lightSource);
 
         return (
             <div className="relCanvas" style={{backgroundColor: 'blue'}}>
                 <div className={timeOfDay}>
                     {
-                    /*TODO: import CSS file and adjust for banner 
-                            correct format from .net to REACT
-                            Set up appropriate routing for images
-                            
+                    /*TODO: Check why onClick for planelaunch isn't working
                     */}
                     <div id={lightSource}></div>   
                 </div>
@@ -28,13 +25,13 @@ class Banner extends Component {
                 
                 <div className="contentContainer">
                     <div className="island">
-                        <img src="/public/img/banner/sunShrineZeal.png" id="sunShrine" alt="Sun Shrine"/>
+                        <img src="./img/banner/sunShrineZeal.png" id="sunShrine" alt="Sun Shrine"/>
                         <div id="blackBird">
                             {/*onClick()="planeLaunch()" */}
                         </div>
-                        <img src="/public/img/banner/PalaceZeal.png" id="zealPalace" alt="Zeal Palace"/>
-                        <img src="/public/img/NuuStructureZeal.png" id="nuuStruct" alt="Sealed Structure" />
-                        <img src="/public/img/EnhasaZeal.png" id="enhasa" alt="Enhasa"/>
+                        <img src="./img/banner/PalaceZeal.png" id="zealPalace" alt="Zeal Palace"/>
+                        <img src="./img/banner/NuuStructureZeal.png" id="nuuStruct" alt="Sealed Structure" />
+                        <img src="./img/banner/EnhasaZeal.png" id="enhasa" alt="Enhasa"/>
                     </div>    
                 
                     <div id="clouds">
@@ -47,9 +44,7 @@ class Banner extends Component {
 
     lightOfDay() {
         const curTime = new Date();
-        console.log(curTime);
         const curHour = curTime.getHours();
-        console.log(curHour);
 
         if (curHour > 3 && curHour <= 6)
         {
@@ -69,8 +64,18 @@ class Banner extends Component {
         } 
     }
 
+    findLightSource(dayState) {
+        let source = "sun";
+        if (dayState === "night" || dayState === "dawn") {
+            source = "moon";
+        }
+        console.log(dayState);
+        return source;
+    }
+
     planeLaunch() {
-        console.log("this happened");
+        return console.log("this happened");
+        
     }
 }
 
